@@ -43,7 +43,7 @@ struct DashboardView: View {
         NavigationStack {
             if isLandscape {
                 landscapeDashboard
-                    .navigationTitle("Giant Buddy")
+                    .navigationTitle("E-Bike Buddy")
                     .navigationBarTitleDisplayMode(.inline)
             } else {
                 ScrollView {
@@ -120,7 +120,7 @@ struct DashboardView: View {
                         }
                     }
                 }
-                .navigationTitle("Giant Buddy")
+                .navigationTitle("E-Bike Buddy")
                 .navigationBarTitleDisplayMode(.inline)
                 .toolbar {
                     ToolbarItem(placement: .primaryAction) {

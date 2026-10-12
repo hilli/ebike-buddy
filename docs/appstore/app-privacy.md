@@ -1,7 +1,7 @@
 # App Privacy answers (App Store Connect → App Privacy)
 
 These answers can't be set through the App Store Connect API. Enter them manually
-in **App Store Connect → Giant Buddy → App Privacy**. They follow the conservative
+in **App Store Connect → E-Bike Buddy → App Privacy**. They follow the conservative
 approach and match `GiantLogger/PrivacyInfo.xcprivacy` and `PRIVACY.md`.
 
 ## Privacy Policy URL

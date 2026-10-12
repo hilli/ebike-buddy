@@ -2,7 +2,7 @@
 # requires-python = ">=3.11"
 # dependencies = ["pyjwt>=2.8", "cryptography>=42", "requests>=2.31"]
 # ///
-"""Push Giant Buddy App Store metadata and screenshots to App Store Connect.
+"""Push E-Bike Buddy App Store metadata and screenshots to App Store Connect.
 
 Reads docs/appstore/ and updates the editable app info (name, subtitle,
 privacy URL, categories), the iOS App Store version (copyright), its en-US

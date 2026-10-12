@@ -78,7 +78,7 @@ class WorkoutManager: ObservableObject {
         let rideSamples = (ride.samples ?? []).sorted { $0.timestamp < $1.timestamp }
         let startDate = ride.startDate
         let endDate = max(ride.endDate ?? startDate.addingTimeInterval(TimeInterval(ride.duration)), startDate)
-        let title = ride.name.isEmpty ? "Giant Buddy" : ride.name
+        let title = ride.name.isEmpty ? "E-Bike Buddy" : ride.name
 
         let config = HKWorkoutConfiguration()
         config.activityType = .cycling

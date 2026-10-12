@@ -227,7 +227,7 @@ class RideRecorder: ObservableObject {
         // Notify user if app is in background
         let distStr = String(format: "%.1f km", accumulatedDistance)
         let mins = elapsedSeconds / 60
-        let healthHint = healthSaveDeferred ? " Open Giant Buddy to save it to Apple Health." : ""
+        let healthHint = healthSaveDeferred ? " Open E-Bike Buddy to save it to Apple Health." : ""
         postBackgroundNotification(
             title: "Ride Recording Stopped",
             body: "Recorded \(distStr) in \(mins) min.\(healthHint)"

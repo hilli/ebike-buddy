@@ -195,7 +195,7 @@ class StravaService: NSObject, ObservableObject {
         appendField("data_type", "gpx")
         appendField("activity_type", "ebikeride")
         appendField("name", name)
-        appendField("description", "Recorded with Giant Buddy")
+        appendField("description", "Recorded with E-Bike Buddy")
         appendField("external_id", ride.id.uuidString)
 
         // File part

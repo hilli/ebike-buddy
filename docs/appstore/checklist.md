@@ -58,7 +58,7 @@ followed by `xcrun simctl io <udid> screenshot <file>.png`.
 
 - [x] `TARGETED_DEVICE_FAMILY = 1` (iPhone only), for the app and the iOS widget. Without it, App Store Connect also requires 13" iPad screenshots.
 - [x] `ITSAppUsesNonExemptEncryption = NO` in `GiantLogger/Info.plist`. The app only uses AES via CommonCrypto for the bike protocol, plus HTTPS. With the key set, App Store Connect skips the export compliance question for every build.
-- [x] Bluetooth usage description says "Giant Buddy" (from build 4).
+- [x] Display name and usage descriptions say "E-Bike Buddy" (from build 5).
 - [x] Upload a build. Build 3, the first iPhone-only build, has been uploaded. You can use Xcode Organizer (Archive, then Distribute App, then App Store Connect) or the `task testflight` flow that uses `ExportOptions-AppStore.plist`. `task release` only exports ad-hoc builds.
 
 ## 3. Done once via the API (version 1.0)
@@ -88,10 +88,11 @@ The command is safe to re-run. It reuses an existing draft and never submits for
 
 ## 5. Risks to be aware of
 
-- **Trademark (guideline 5.2.1)**: "Giant" is a third-party trademark (Giant Manufacturing Co.).
-  The description says the app is unofficial and not affiliated with Giant, but App Review
-  may still reject an app name that contains "Giant". If they do, rename the app, e.g. "Buddy for Giant E-Bikes".
-  Have a fallback ready before submitting.
+- **Trademark (guideline 4.1(a) Copycats)**: "Giant" is a third-party trademark (Giant Manufacturing Co.).
+  Version 1.0 was rejected under 4.1(a) because the metadata used "Giant" without authorization, so the
+  app was renamed from "Giant Buddy" to "E-Bike Buddy" (listing, display name, permission prompts, in-app
+  title, screenshots). Keep "Giant" out of the name, subtitle, keywords, promotional text and screenshots.
+  The description mentions it only in one compatibility line and the non-affiliation disclaimer.
 - **Hardware dependency**: App Review has no bike. Version 1.0 was rejected once under Guideline 2.1
   (Information Needed). The review notes now answer each requested point: screen recording, purpose,
   setup, external services, regions and third-party material. Attach the recording

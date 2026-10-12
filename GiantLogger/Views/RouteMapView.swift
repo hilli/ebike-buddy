@@ -268,7 +268,7 @@ struct RouteMapView: View {
 
         var gpx = """
         <?xml version="1.0" encoding="UTF-8"?>
-        <gpx version="1.1" creator="Giant Buddy"
+        <gpx version="1.1" creator="E-Bike Buddy"
           xmlns="http://www.topografix.com/GPX/1/1">
           <trk>
             <name>\(route.name.xmlEscaped)</name>

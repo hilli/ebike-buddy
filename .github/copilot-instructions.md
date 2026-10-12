@@ -1,4 +1,4 @@
-# Copilot instructions for Giant Buddy iOS
+# Copilot instructions for E-Bike Buddy iOS
 
 ## Build, lint, and run commands
 
