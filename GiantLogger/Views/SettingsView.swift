@@ -261,7 +261,7 @@ struct SettingsView: View {
         } header: {
             Text("Safety")
         } footer: {
-            Text("Crash detection monitors for sudden impacts while riding and can alert your emergency contacts.")
+            Text("Crash detection watches for sudden impacts while riding and helps you alert your emergency contacts.")
         }
     }
 

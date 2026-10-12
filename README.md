@@ -1,6 +1,6 @@
-# Giant Buddy iOS
+# E-Bike Buddy iOS
 
-Giant Buddy is an iPhone and Apple Watch companion for Giant e-bikes with RideControl+.
+E-Bike Buddy (formerly Giant Buddy) is an iPhone and Apple Watch companion for Giant e-bikes with RideControl+. It is an independent app, not affiliated with, endorsed by or sponsored by Giant Manufacturing Co., Ltd.
 It connects over BLE using the Giant GEV protocol, shows live bike telemetry, records rides with GPS, and adds navigation, analytics, safety features, and bike-health tooling around the ride itself.
 
 It is the iOS/watchOS evolution of [giant-esp32](https://github.com/hilli/giant-esp32): same protocol family, but with phone-grade maps, HealthKit, background operation, widgets, and much richer ride history.
@@ -92,7 +92,9 @@ This repository also includes a `Taskfile.yaml` with common workflows:
 
 - `task build:quiet` — build the iOS app in Debug
 - `task simulator` — build and launch in the iOS Simulator
+- `task test` — run the unit tests in the iOS Simulator (override the device with `SIM_DEST`)
 - `task deploy` — install and launch on a connected iPhone
+- `task testflight` — archive and upload to App Store Connect for TestFlight (build number is assigned by Xcode)
 - `task lint` — run SwiftLint (if installed)
 - `task format:check` — verify SwiftFormat formatting
 - `task setup` — install SwiftLint and SwiftFormat via Homebrew

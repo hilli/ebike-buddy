@@ -22,7 +22,12 @@ struct EmergencyContactsView: View {
             } header: {
                 Text("Crash Detection")
             } footer: {
-                Text("When enabled, the app monitors for sudden impacts while riding. If a crash is detected and you don't respond within 60 seconds, an SMS is sent to your emergency contacts with your GPS location.")
+                Text(
+                    "When enabled, the app monitors for sudden impacts while riding. "
+                        + "If a crash is detected and you don't respond within 60 seconds, "
+                        + "the app opens a text message "
+                        + "to your emergency contacts with your GPS location, ready for you to send."
+                )
             }
 
             Section {

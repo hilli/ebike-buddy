@@ -1,4 +1,4 @@
-# Giant Buddy — App Store Listing
+# E-Bike Buddy — App Store Listing
 
 The App Store listing now lives in [`docs/appstore/`](appstore/):
 

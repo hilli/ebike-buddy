@@ -62,7 +62,7 @@ struct RideLiveActivity: Widget {
             HStack {
                 Image(systemName: "bicycle")
                     .foregroundStyle(.green)
-                Text("Giant Buddy")
+                Text("E-Bike Buddy")
                     .font(.subheadline.bold())
                 Spacer()
                 Label("\(context.state.batteryPercent)%", systemImage: batteryIcon(context.state.batteryPercent))

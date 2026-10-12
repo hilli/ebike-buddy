@@ -95,7 +95,7 @@ class CrashDetector: ObservableObject {
         guard !contacts.isEmpty else { return }
 
         let timestamp = DateFormatter.localizedString(from: Date(), dateStyle: .short, timeStyle: .medium)
-        var body = "⚠️ CRASH DETECTED – GiantLogger\nTime: \(timestamp)"
+        var body = "⚠️ CRASH DETECTED – E-Bike Buddy\nTime: \(timestamp)"
 
         if let loc = location {
             let lat = loc.coordinate.latitude
