@@ -140,7 +140,7 @@ struct SettingsView: View {
                         Text("Jens Hilligsøe")
                             .foregroundStyle(.secondary)
                     }
-                    Link(destination: URL(string: "https://github.com/hilli/giant-buddy")!) {
+                    Link(destination: URL(string: "https://github.com/hilli/ebike-buddy")!) {
                         HStack {
                             Text("Source Code")
                             Spacer()
