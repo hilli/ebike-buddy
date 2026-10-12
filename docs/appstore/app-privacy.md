@@ -6,7 +6,7 @@ approach and match `GiantLogger/PrivacyInfo.xcprivacy` and `PRIVACY.md`.
 
 ## Privacy Policy URL
 
-`https://github.com/hilli/giant-buddy/blob/main/PRIVACY.md`
+`https://github.com/hilli/ebike-buddy/blob/main/PRIVACY.md`
 
 ## Data collection
 
