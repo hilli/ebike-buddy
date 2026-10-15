@@ -818,39 +818,54 @@ struct DashboardView: View {
 
     @ViewBuilder
     private var weatherSection: some View {
-        if let current = weatherManager.currentWeather {
-            HStack(spacing: 16) {
-                // Current conditions
-                HStack(spacing: 8) {
-                    Image(systemName: current.symbolName)
-                        .font(.largeTitle)
-                        .symbolRenderingMode(.multicolor)
-                    VStack(alignment: .leading, spacing: 2) {
-                        Text(current.temperature.formatted(.measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(0)))))
-                            .font(.title.bold())
-                        Text(current.condition.description)
-                            .font(.subheadline)
-                            .foregroundStyle(.secondary)
-                    }
-                }
-
-                Spacer()
-
-                // Next 3 hours
+        if let current = weatherManager.currentWeather,
+           let attribution = weatherManager.attribution {
+            VStack(spacing: 12) {
                 HStack(spacing: 16) {
-                    ForEach(weatherManager.hourlyForecast, id: \.date) { hour in
-                        VStack(spacing: 4) {
-                            Text(hour.date.formatted(.dateTime.hour()))
-                                .font(.caption)
+                    // Current conditions
+                    HStack(spacing: 8) {
+                        Image(systemName: current.symbolName)
+                            .font(.largeTitle)
+                            .symbolRenderingMode(.multicolor)
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(current.temperature.formatted(
+                                .measurement(
+                                    width: .abbreviated,
+                                    numberFormatStyle: .number.precision(.fractionLength(0))
+                                )
+                            ))
+                                .font(.title.bold())
+                            Text(current.condition.description)
+                                .font(.subheadline)
                                 .foregroundStyle(.secondary)
-                            Image(systemName: hour.symbolName)
-                                .symbolRenderingMode(.multicolor)
-                                .font(.title3)
-                            Text(hour.temperature.formatted(.measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(0)))))
-                                .font(.callout.bold())
+                        }
+                    }
+
+                    Spacer()
+
+                    // Next 3 hours
+                    HStack(spacing: 16) {
+                        ForEach(weatherManager.hourlyForecast, id: \.date) { hour in
+                            VStack(spacing: 4) {
+                                Text(hour.date.formatted(.dateTime.hour()))
+                                    .font(.caption)
+                                    .foregroundStyle(.secondary)
+                                Image(systemName: hour.symbolName)
+                                    .symbolRenderingMode(.multicolor)
+                                    .font(.title3)
+                                Text(hour.temperature.formatted(
+                                    .measurement(
+                                        width: .abbreviated,
+                                        numberFormatStyle: .number.precision(.fractionLength(0))
+                                    )
+                                ))
+                                    .font(.callout.bold())
+                            }
                         }
                     }
                 }
+
+                WeatherAttributionView(attribution: attribution)
             }
             .padding()
             .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 12))
@@ -859,25 +874,32 @@ struct DashboardView: View {
 
     @ViewBuilder
     private var compactWeatherRow: some View {
-        if let current = weatherManager.currentWeather {
-            HStack(spacing: 8) {
-                Image(systemName: current.symbolName)
-                    .symbolRenderingMode(.multicolor)
-                    .font(.caption)
-                Text(current.temperature.formatted(.measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(0)))))
-                    .font(.caption.bold())
+        if let current = weatherManager.currentWeather,
+           let attribution = weatherManager.attribution {
+            VStack(spacing: 6) {
+                HStack(spacing: 8) {
+                    Image(systemName: current.symbolName)
+                        .symbolRenderingMode(.multicolor)
+                        .font(.caption)
+                    Text(current.temperature.formatted(
+                        .measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(0)))
+                    ))
+                        .font(.caption.bold())
 
-                Divider().frame(height: 16)
+                    Divider().frame(height: 16)
 
-                ForEach(weatherManager.hourlyForecast, id: \.date) { hour in
-                    HStack(spacing: 2) {
-                        Image(systemName: hour.symbolName)
-                            .symbolRenderingMode(.multicolor)
-                            .font(.caption2)
-                        Text(hour.temperature.formatted(.measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(0)))))
-                            .font(.caption2)
+                    ForEach(weatherManager.hourlyForecast, id: \.date) { hour in
+                        HStack(spacing: 2) {
+                            Image(systemName: hour.symbolName)
+                                .symbolRenderingMode(.multicolor)
+                                .font(.caption2)
+                            Text(hour.temperature.formatted(.measurement(width: .abbreviated, numberFormatStyle: .number.precision(.fractionLength(0)))))
+                                .font(.caption2)
+                        }
                     }
                 }
+
+                WeatherAttributionView(attribution: attribution)
             }
             .padding(.horizontal, 12)
             .padding(.vertical, 8)

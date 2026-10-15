@@ -36,7 +36,7 @@ task appstore:push                # apply
 Re-running the push is safe. It updates fields that already exist and replaces a screenshot set only when its files have changed.
 `--skip-screenshots` leaves the screenshots untouched.
 
-`--attach FILE` uploads the App Review attachment, e.g. the reviewer screen recording. App Store Connect allows only
+`--attach FILE` uploads the App Review attachment, e.g. the reviewer demo video. App Store Connect allows only
 one, so it replaces any existing attachment. Attach other files to the Resolution Center reply; it rejects `.gpx`, `.csv` and `.txt`
 but accepts `.zip` and `.pdf`, so zip the sample GPX/CSV. Keep
 these files out of the repo; they contain real ride data.
@@ -95,5 +95,65 @@ The command is safe to re-run. It reuses an existing draft and never submits for
   The description mentions it only in one compatibility line and the non-affiliation disclaimer.
 - **Hardware dependency**: App Review has no bike. Version 1.0 was rejected once under Guideline 2.1
   (Information Needed). The review notes now answer each requested point: screen recording, purpose,
-  setup, external services, regions and third-party material. Attach the recording
-  with `--attach`, and paste the notes into the Resolution Center reply with the sample GPX/CSV attached as a zip.
+  setup, external services, regions and third-party material. The October 14 review of build 7 requires
+  an externally filmed video showing both a physical Apple device and the bike; the previous screen
+  recording is not sufficient. Follow the filming and resubmission checklist below.
+- **WeatherKit attribution (guideline 5.2.5)**: the October 14 review also requires the Apple Weather
+  mark and legal-source link wherever weather is displayed. The updated dashboard includes both in
+  portrait and landscape. A new build and physical-device footage of this attribution are required.
+
+## 6. October 14 rejection: filming and resubmission
+
+Do not push `metadata/en-US/review_notes.txt` while it contains `[PENDING: ...]` placeholders. Replace
+them with the new video URL and weather timestamp only after filming the updated build. Do not reuse
+the old, pre-rename screen recording as the sole hardware demonstration.
+
+- [ ] Upload and select a new build containing the weather attribution; build 7 does not contain it.
+- [ ] Install that build on the physical iPhone before filming. Use the current E-Bike Buddy app, not
+      simulator/demo mode or an older build.
+- [ ] Film with a second camera so the iPhone and powered-on compatible bike are visible together.
+      Show the Home Screen, launch E-Bike Buddy and keep the phone screen readable.
+- [ ] Show initial app-to-bike pairing: with the app disconnected, open Bike > Scan for Bikes and
+      select the bike. If the saved bike reconnects automatically, temporarily turn off auto-connect
+      before starting the demonstration; no need to erase rides or reset the bike.
+- [ ] Show the connected dashboard and bike interaction: battery/status data and changes to assist
+      level or lights reflected in the app. Show speed/cadence only if it can be done safely; do not
+      handle or film the phone while riding.
+- [ ] Show automatic recording, end/disconnect as appropriate, then open the saved ride in History
+      and show its charts and export. Demonstrate navigation, routes, search, bike status and optional
+      Strava upload as applicable. Show the Watch companion if demonstrating its features.
+- [ ] On the Ride tab, show current conditions, the hourly forecast, the Apple Weather mark and
+      "Weather data sources". Open the link to show Apple's legal page. Include portrait and landscape,
+      and check that the mark remains readable in light and dark appearance.
+- [ ] If demonstrating crash detection, use Settings > Emergency Contacts & Crash Detection >
+      Test Crash Alert, which sends nothing. Do not trigger a real emergency message for the video.
+- [ ] Upload the video somewhere App Review can open without signing in or requesting access.
+      Check the URL in a signed-out/private browser. Avoid exposing personal ride locations, contacts
+      or Strava credentials in the footage.
+- [ ] Replace the pending video URL and weather timestamp in `metadata/en-US/review_notes.txt`, then
+      put these notes in App Review Information (via `task appstore:push -- --skip-screenshots` or
+      manually). An attachment via `--attach FILE` can supplement the URL Apple explicitly requested.
+- [ ] Reply to the rejection with the selected new build number, the video URL and the timestamp
+      showing WeatherKit attribution. Explain that the previous video was a physical-iPhone screen
+      recording and that the replacement externally films both the phone and bike, including pairing
+      and interaction. No app demo account/password is required; Strava sign-in is optional.
+- [ ] Resubmit only after the new build and video are available and the pending placeholders are gone.
+
+Resolution Center reply template (fill in only after the build and video are ready):
+
+```text
+Thank you for clarifying the requirements.
+
+For guideline 5.2.5, build [NEW BUILD NUMBER] displays the Apple Weather mark and a
+"Weather data sources" link alongside the current conditions and hourly forecast,
+in both portrait and landscape. The link opens Apple's legal attribution page.
+The video shows this at [WEATHER TIMESTAMP].
+
+For guideline 2.1, the previous video was a screen recording made on a physical
+iPhone, not a simulator. We have replaced it with an externally filmed demo showing
+the physical iPhone and compatible e-bike together, initial pairing, hardware
+interaction and the app workflow: [VIDEO URL].
+
+The same video link and weather timestamp are included in App Review Information.
+No app account or demo credentials are required.
+```

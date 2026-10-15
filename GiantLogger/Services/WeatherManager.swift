@@ -8,6 +8,7 @@ class WeatherManager: ObservableObject {
 
     @Published var currentWeather: CurrentWeather?
     @Published var hourlyForecast: [HourWeather] = []
+    @Published private(set) var attribution: WeatherAttribution?
 
     private let service = WeatherService.shared
     private var refreshTimer: Timer?
@@ -22,6 +23,9 @@ class WeatherManager: ObservableObject {
         }
 
         do {
+            if attribution == nil {
+                attribution = try await service.attribution
+            }
             let (current, hourly) = try await service.weather(
                 for: location,
                 including: .current, .hourly
@@ -34,7 +38,7 @@ class WeatherManager: ObservableObject {
             )
             lastFetchLocation = location
         } catch {
-            print("WeatherManager: failed to fetch weather: \(error)")
+            print("WeatherManager: failed to fetch weather or attribution: \(error)")
         }
     }
 

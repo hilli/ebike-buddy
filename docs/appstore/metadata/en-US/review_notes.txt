@@ -1,7 +1,9 @@
-E-Bike Buddy (formerly Giant Buddy) is an independent ride computer for e-bikes with RideControl+ Bluetooth. Attached: GiantBuddy-App-Review.mp4 (screen recording; it was made before the rename, so the app title in it still reads "Giant Buddy"). Sample files from that ride (GPX and CSV) are in ride_2026-10-09.zip, attached to our Resolution Center reply.
+E-Bike Buddy (formerly Giant Buddy) is an independent ride computer for e-bikes with RideControl+ Bluetooth. Sample files (GPX and CSV) are in ride_2026-10-09.zip, attached to our previous Resolution Center reply.
 
-1. SCREEN RECORDING
-Recorded on an iPhone 18 Pro Max running iOS 27, connected to a real e-bike. It starts on the Home Screen, launches the app and shows the main flow: connecting to the bike, the live ride dashboard and automatic recording, A-to-B turn-by-turn navigation, ride history with charts, export and Strava upload, saved routes, place search, bike status and a crash detection test. The app has no account creation, login, account deletion, user-generated content or in-app purchases.
+1. PHYSICAL-DEVICE DEMO (GUIDELINE 2.1)
+Demo video link: [PENDING: record the updated build on a physical iPhone with the bike visible, upload the video, and replace this placeholder before pushing these notes or resubmitting.]
+The replacement demo must show the current E-Bike Buddy build, the physical iPhone and compatible e-bike together, initial pairing (Bike tab > Scan for Bikes > select the bike), live telemetry responding to bike interaction, automatic recording and the completed ride in History. Include the remaining workflow: navigation, charts, export, optional Strava upload, saved routes, place search, bike status and the crash detection test. Also show the WeatherKit attribution and open its legal-source link, as described below. The previous screen recording alone does not satisfy the requested view of both physical devices.
+The app has no account creation, login, account deletion, user-generated content or in-app purchases.
 
 2. PURPOSE AND AUDIENCE
 For owners of e-bikes with RideControl+. The bike's own display shows little and keeps no history. E-Bike Buddy turns iPhone and Apple Watch into a ride computer: live speed, motor and rider power, cadence, torque and battery; automatic ride recording even without getting the phone out of your pocket; cycling navigation with a battery prediction for the route; ride analysis and export; and bike health (odometer, battery, maintenance).
@@ -33,3 +35,8 @@ The app works the same in all regions. Map, search, directions and weather cover
 
 6. GUIDELINE 4.1(a)
 Following the 4.1(a) rejection, the app is renamed E-Bike Buddy in the App Store listing, on the Home Screen, in permission prompts and in the app itself; the app icon is redrawn without the word "Giant", and the screenshots are updated. "Giant" now appears only near the end of the description: in one factual compatibility statement ("Works with Giant e-bikes that have RideControl+ Bluetooth") and in the disclaimer that the app is not affiliated with, endorsed by or sponsored by Giant Manufacturing Co., Ltd. The name, subtitle, keywords, promotional text and screenshots do not use "Giant". The app contains no Giant logos, artwork, software or other copyrighted material; it talks to the rider's own bike over Bluetooth. It is open source (MIT licence). Crash detection is a convenience feature, not an emergency service.
+
+7. WEATHERKIT ATTRIBUTION (GUIDELINE 5.2.5)
+The updated build displays the Apple Weather mark and a tappable "Weather data sources" legal link directly below the current conditions and hourly forecast in both portrait and landscape layouts. The marks and legal URL come from WeatherKit's attribution API. Weather is not displayed until the attribution is available.
+To find it: allow location access, open the Ride tab and scroll to the weather card below the map. Rotate the phone to see the same attribution in the landscape weather card. Tap "Weather data sources" to open Apple's legal attribution page.
+Weather demonstration in the new physical-device video: [PENDING: add the timestamp after filming.]
